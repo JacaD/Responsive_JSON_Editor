@@ -21,11 +21,11 @@ const mapStateToProps = state => {
   };
 };
 
-function CustomSelectComponent({ inputID, properties, onDataModified }) {
+function CustomSelectComponent({ id, properties, onDataModified }) {
   let [inputValue, setInputValue] = React.useState("");
   let ref = React.createRef();
-  let options = properties[inputID]["options"];
-  let label = properties[inputID].label;
+  let options = properties[id]["options"];
+  let label = properties[id].label;
   return (
     <div className="superSelectFieldDiv">
       <MuiThemeProvider theme={createMuiTheme(theme)}>
@@ -49,9 +49,9 @@ function CustomSelectComponent({ inputID, properties, onDataModified }) {
                 style={theme.addButton}
                 onClick={() => {
                   if (inputValue) {
-                    let newOptions = [...properties[inputID].options];
+                    let newOptions = [...properties[id].options];
                     newOptions.push(inputValue);
-                    onDataModified({ options: newOptions }, inputID);
+                    onDataModified({ options: newOptions }, id);
                   }
                   ref.current.closeMenu();
                 }}
@@ -87,7 +87,7 @@ function CustomSelectComponent({ inputID, properties, onDataModified }) {
                       e.stopPropagation();
                       let newOptions = [...options];
                       newOptions.splice(newOptions.indexOf(option), 1);
-                      onDataModified({ options: newOptions }, inputID);
+                      onDataModified({ options: newOptions }, id);
                     }}
                   >
                     delete

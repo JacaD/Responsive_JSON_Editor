@@ -41,10 +41,10 @@ const SuperCombobox = ({
       style={{ marginLeft: -3, display: "flex", alignItems: "center" }}
     >
       <div style={{ display: "flex", flexGrow: 2 }}>
-        <CustomSelectComponent inputID={id} />
+        <CustomSelectComponent id={id} />
       </div>
       <div>
-        <DialogBox inputID={id} />
+        <DialogBox id={id} />
       </div>
       {input["image"] && (
         <div style={{ display: "flex", alignItems: "center" }}>

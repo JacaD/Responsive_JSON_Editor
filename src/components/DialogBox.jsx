@@ -21,8 +21,8 @@ const mapStateToProps = state => {
   };
 };
 
-function DialogBox({ inputID, properties, onDataModified }) {
-  let label = properties[inputID].label;
+function DialogBox({ id, properties, onDataModified }) {
+  let label = properties[id].label;
   const [open, setOpen] = React.useState(false);
   let value;
 
@@ -40,9 +40,9 @@ function DialogBox({ inputID, properties, onDataModified }) {
 
   function handleSave() {
     if (value) {
-      let newOptions = [...properties[inputID].options];
+      let newOptions = [...properties[id].options];
       newOptions.push(value);
-      onDataModified({ options: newOptions }, inputID);
+      onDataModified({ options: newOptions }, id);
     }
     setOpen(false);
   }
