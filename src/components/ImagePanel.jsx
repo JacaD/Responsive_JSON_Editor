@@ -1,28 +1,28 @@
 import React from "react";
+import { connect } from "react-redux";
 import Paper from "@material-ui/core/Paper";
 import Slide from "@material-ui/core/Slide";
 
-function ImagePanel({
-  classes,
-  expansionPanelsState,
-  checked,
-  source,
-  reference
-}) {
+const mapStateToProps = state => {
+  return {
+    imagePath: state.imagePath,
+    isShowing: state.isShowing.isShowing,
+    expansionPanelsState: state.expansionPanelsState
+  };
+};
+
+const ImagePanel = ({ expansionPanelsState, isShowing, imagePath }) => {
   return (
     <Paper
-      className={classes.paper}
+      className={"paper"}
       style={{
         overflow: "hidden"
       }}
-      ref={reference}
     >
-      <div style={{ position: "relative" }} id="imageDiv">
+      <div style={{ position: "relative" }} className={"imageDiv"}>
         <div
-          id="promptBar"
+          className={"promptBar"}
           style={{
-            height: "100vh",
-            width: "1vh",
             backgroundColor: expansionPanelsState.some(
               x => x[0] === true && x[1] === true
             )
@@ -40,10 +40,10 @@ function ImagePanel({
             height: "90%"
           }}
         >
-          <Slide direction="right" in={checked} mountOnEnter unmountOnExit>
+          <Slide direction="right" in={isShowing} mountOnEnter unmountOnExit>
             <div>
               <img
-                src={source}
+                src={imagePath}
                 style={{ maxWidth: "100%", maxHeight: "100%" }}
                 alt="images"
               />
@@ -53,6 +53,6 @@ function ImagePanel({
       </div>
     </Paper>
   );
-}
+};
 
-export default ImagePanel;
+export default connect(mapStateToProps)(ImagePanel);

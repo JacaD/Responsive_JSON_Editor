@@ -1,65 +1,75 @@
 import React from "react";
+import { connect } from "react-redux";
 import Button from "@material-ui/core/Button";
-import SuperSelectField from "material-ui-superselectfield";
 import { MuiThemeProvider } from "material-ui/styles";
-import DeleteButton from "./DeleteButton";
+import { createMuiTheme } from "@material-ui/core/styles";
+import SuperSelectField from "material-ui-superselectfield";
+import { setData } from "../../store/actions";
+import theme from "../../styles";
 
-function CustomSelectComponent({ label, options, save }) {
+const mapDispatchToProps = dispatch => {
+  return {
+    onDataModified: (data, id) => {
+      dispatch(setData(data, id));
+    }
+  };
+};
+
+const mapStateToProps = state => {
+  return {
+    properties: state.properties
+  };
+};
+
+function CustomSelectComponent({ inputID, properties, onDataModified }) {
   let [inputValue, setInputValue] = React.useState("");
   let ref = React.createRef();
+  let options = properties[inputID]["options"];
+  let label = properties[inputID].label;
   return (
-    <div style={{ display: "flex", flexGrow: 2 }}>
-      <MuiThemeProvider>
-        {options !== undefined && (
-          <SuperSelectField
-            onAutoCompleteTyping={e => {
-              setInputValue(e);
-            }}
-            floatingLabelStyle={{
-              display: "flex",
-              alignItems: "flex-start",
-              fontSize: "18px",
-              color: "#757575"
-            }}
-            floatingLabel={label}
-            noMatchFound={
-              options.length === 0 ? (
-                <div>Nothing to show</div>
-              ) : (
-                <Button
-                  style={{
-                    display: "block",
-                    marginLeft: "auto",
-                    marginRight: "auto"
-                  }}
-                  onClick={() => {
-                    if (inputValue) {
-                      options.push(inputValue);
-                      save();
-                    }
-                    ref.current.closeMenu();
-                  }}
-                >
-                  add
-                </Button>
-              )
-            }
-            ref={ref}
-            name="state11"
-            hintText=""
-            value={null}
-            style={{
-              display: "flex",
-              minWidth: 150,
-              margin: 0,
-              alignItems: "stretch",
-              flexGrow: 1,
-              padding: 5
-            }}
-            elementHeight={53}
-            showAutocompleteThreshold={1}
-          >
-            {options.map(option => (
+    <div className="superSelectFieldDiv">
+      <MuiThemeProvider theme={createMuiTheme(theme)}>
+        <SuperSelectField
+          onAutoCompleteTyping={e => {
+            setInputValue(e);
+          }}
+          floatingLabelStyle={{
+            display: "flex",
+            alignItems: "flex-start",
+            fontSize: "18px",
+            color: "#757575"
+          }}
+          floatingLabel={label}
+          noMatchFound={
+            options.length === 0 ? (
+              <div>Nothing to show</div>
+            ) : (
+              <Button
+                className={"addButton"}
+                style={theme.addButton}
+                onClick={() => {
+                  if (inputValue) {
+                    let newOptions = [...properties[inputID].options];
+                    newOptions.push(inputValue);
+                    onDataModified({ options: newOptions }, inputID);
+                  }
+                  ref.current.closeMenu();
+                }}
+              >
+                add
+              </Button>
+            )
+          }
+          ref={ref}
+          name="state11"
+          hintText=""
+          value={null}
+          style={theme.superSelectField}
+          elementHeight={53}
+          showAutocompleteThreshold={1}
+        >
+          {options.map(option => {
+            return (
               <div
                 style={{
                   display: "flex",
@@ -68,29 +78,31 @@ function CustomSelectComponent({ label, options, save }) {
                 }}
                 key={option}
                 value={option}
+                className="SelectEntry"
               >
                 <div>{option}</div>
                 <div>
-                  <DeleteButton
+                  <Button
                     onClick={e => {
                       e.stopPropagation();
-                      console.log(option);
-                      console.log(options);
-                      console.log(options.find(e => e === option));
-                      options.splice(options.indexOf(option), 1);
-                      save();
+                      let newOptions = [...options];
+                      newOptions.splice(newOptions.indexOf(option), 1);
+                      onDataModified({ options: newOptions }, inputID);
                     }}
                   >
                     delete
-                  </DeleteButton>
+                  </Button>
                 </div>
               </div>
-            ))}
-          </SuperSelectField>
-        )}
+            );
+          })}
+        </SuperSelectField>
       </MuiThemeProvider>
     </div>
   );
 }
 
-export default CustomSelectComponent;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CustomSelectComponent);
