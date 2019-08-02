@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Responsive_JSON_Editor/static/css/main.ba49ec77.chunk.css",
+    "main.js": "/Responsive_JSON_Editor/static/js/main.c249f9ea.chunk.js",
+    "main.js.map": "/Responsive_JSON_Editor/static/js/main.c249f9ea.chunk.js.map",
+    "runtime~main.js": "/Responsive_JSON_Editor/static/js/runtime~main.e26e86c6.js",
+    "runtime~main.js.map": "/Responsive_JSON_Editor/static/js/runtime~main.e26e86c6.js.map",
+    "static/js/2.b00f2d7e.chunk.js": "/Responsive_JSON_Editor/static/js/2.b00f2d7e.chunk.js",
+    "static/js/2.b00f2d7e.chunk.js.map": "/Responsive_JSON_Editor/static/js/2.b00f2d7e.chunk.js.map",
+    "index.html": "/Responsive_JSON_Editor/index.html",
+    "precache-manifest.3bcb859c591e40c72c3ebe20971f8d68.js": "/Responsive_JSON_Editor/precache-manifest.3bcb859c591e40c72c3ebe20971f8d68.js",
+    "service-worker.js": "/Responsive_JSON_Editor/service-worker.js",
+    "static/css/main.ba49ec77.chunk.css.map": "/Responsive_JSON_Editor/static/css/main.ba49ec77.chunk.css.map"
+  }
+}
