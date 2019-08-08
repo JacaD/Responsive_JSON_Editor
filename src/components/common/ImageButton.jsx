@@ -1,18 +1,15 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import { connect } from "react-redux";
-import { setData, setImagePath, setIsShowing } from "../../store/actions";
+import { setImagePath, setIsImageShowing } from "../../store/actions";
 
 const mapDispatchToProps = dispatch => {
   return {
-    onDataModified: (data, id) => {
-      dispatch(setData(data, id));
-    },
     onImagePathModified: path => {
       dispatch(setImagePath(path));
     },
-    onIsImageShowingModified: (isShowing, callerID) => {
-      dispatch(setIsShowing(isShowing, callerID));
+    onIsImageShowingModified: (isImageShowing, callerID) => {
+      dispatch(setIsImageShowing(isImageShowing, callerID));
     }
   };
 };
@@ -20,8 +17,8 @@ const mapDispatchToProps = dispatch => {
 const mapStateToProps = state => {
   return {
     properties: state.properties,
-    isShowing: state.isShowing.isShowing,
-    callerID: state.isShowing.callerID
+    isImageShowing: state.isImageShowing.isImageShowing,
+    callerID: state.isImageShowing.callerID
   };
 };
 
@@ -29,7 +26,7 @@ function ImageButton({
   id,
   callerID,
   properties,
-  isShowing,
+  isImageShowing,
   onIsImageShowingModified,
   onImagePathModified
 }) {
@@ -43,12 +40,12 @@ function ImageButton({
         variant="outlined"
         color="primary"
         onClick={e => {
-          if (isShowing && callerID === id) {
+          if (isImageShowing && callerID === id) {
             onIsImageShowingModified(false, id);
-          } else if (!isShowing) {
+          } else if (!isImageShowing) {
             onImagePathModified(input["image"]);
             onIsImageShowingModified(true, input.id);
-          } else if (isShowing && callerID !== input.id) {
+          } else if (isImageShowing && callerID !== input.id) {
             onImagePathModified(input["image"]);
             onIsImageShowingModified(true, input.id);
           }

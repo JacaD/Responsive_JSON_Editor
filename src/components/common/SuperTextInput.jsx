@@ -1,29 +1,20 @@
 import React from "react";
 import { connect } from "react-redux";
 import TextField from "@material-ui/core/TextField";
-import { setData, setImagePath, setIsShowing } from "../../store/actions";
+import { setData } from "../../store/actions";
 import ImageButton from "./ImageButton";
 
 const mapDispatchToProps = dispatch => {
   return {
     onDataModified: (data, id) => {
       dispatch(setData(data, id));
-    },
-    onImagePathModified: path => {
-      dispatch(setImagePath(path));
-    },
-    onIsImageShowingModified: (isShowing, callerID) => {
-      dispatch(setIsShowing(isShowing, callerID));
     }
   };
 };
 
 const mapStateToProps = state => {
   return {
-    properties: state.properties,
-    imagePath: state.imagePath,
-    isShowing: state.isShowing.isShowing,
-    callerID: state.isShowing.callerID
+    properties: state.properties
   };
 };
 

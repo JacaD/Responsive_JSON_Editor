@@ -2,25 +2,11 @@ import React from "react";
 import { connect } from "react-redux";
 import DialogBox from "../DialogBox";
 import CustomSelectComponent from "../common/CustomSelectComponent";
-import { setImagePath, setIsShowing } from "../../store/actions";
 import ImageButton from "./ImageButton";
-
-const mapDispatchToProps = dispatch => {
-  return {
-    onImagePathModified: path => {
-      dispatch(setImagePath(path));
-    },
-    onIsImageShowingModified: (isShowing, callerID) => {
-      dispatch(setIsShowing(isShowing, callerID));
-    }
-  };
-};
 
 const mapStateToProps = state => {
   return {
-    properties: state.properties,
-    isShowing: state.isShowing.isShowing,
-    callerID: state.isShowing.callerID
+    properties: state.properties
   };
 };
 
@@ -41,7 +27,4 @@ const SuperCombobox = ({ id, properties }) => {
   );
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SuperCombobox);
+export default connect(mapStateToProps)(SuperCombobox);

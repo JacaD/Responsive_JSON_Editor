@@ -2,28 +2,20 @@ import React from "react";
 import { connect } from "react-redux";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-import { setData, setImagePath, setIsShowing } from "../../store/actions";
+import { setData } from "../../store/actions";
 import ImageButton from "./ImageButton";
 
 const mapDispatchToProps = dispatch => {
   return {
     onDataModified: (data, id) => {
       dispatch(setData(data, id));
-    },
-    onImagePathModified: path => {
-      dispatch(setImagePath(path));
-    },
-    onIsImageShowingModified: (isShowing, callerID) => {
-      dispatch(setIsShowing(isShowing, callerID));
     }
   };
 };
 
 const mapStateToProps = state => {
   return {
-    properties: state.properties,
-    isShowing: state.isShowing.isShowing,
-    callerID: state.isShowing.callerID
+    properties: state.properties
   };
 };
 

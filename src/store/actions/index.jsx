@@ -9,10 +9,10 @@ export const setImagePath = imagePath => ({
   imagePath
 });
 
-export const setIsShowing = (isShowing, callerID) => {
+export const setIsImageShowing = (isImageShowing, callerID) => {
   return {
-    type: "SET_IS_SHOWING",
-    isShowing,
+    type: "SET_IS_IMAGE_SHOWING",
+    isImageShowing,
     callerID
   };
 };

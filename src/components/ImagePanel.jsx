@@ -6,12 +6,12 @@ import Slide from "@material-ui/core/Slide";
 const mapStateToProps = state => {
   return {
     imagePath: state.imagePath,
-    isShowing: state.isShowing.isShowing,
+    isImageShowing: state.isImageShowing.isImageShowing,
     expansionPanelsState: state.expansionPanelsState
   };
 };
 
-const ImagePanel = ({ expansionPanelsState, isShowing, imagePath }) => {
+const ImagePanel = ({ expansionPanelsState, isImageShowing, imagePath }) => {
   return (
     <Paper className={"Paper ImagePaper"}>
       <div className={"ImageDiv"}>
@@ -24,7 +24,12 @@ const ImagePanel = ({ expansionPanelsState, isShowing, imagePath }) => {
           }}
         />
         <div className={"ImageSlideDiv"}>
-          <Slide direction="right" in={isShowing} mountOnEnter unmountOnExit>
+          <Slide
+            direction="right"
+            in={isImageShowing}
+            mountOnEnter
+            unmountOnExit
+          >
             <div>
               <img src={imagePath} className={"Image"} alt="images" />
             </div>
