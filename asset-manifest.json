@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Responsive_JSON_Editor/static/css/main.39a82b3c.chunk.css",
-    "main.js": "/Responsive_JSON_Editor/static/js/main.6987f264.chunk.js",
-    "main.js.map": "/Responsive_JSON_Editor/static/js/main.6987f264.chunk.js.map",
+    "main.js": "/Responsive_JSON_Editor/static/js/main.15715811.chunk.js",
+    "main.js.map": "/Responsive_JSON_Editor/static/js/main.15715811.chunk.js.map",
     "runtime~main.js": "/Responsive_JSON_Editor/static/js/runtime~main.e26e86c6.js",
     "runtime~main.js.map": "/Responsive_JSON_Editor/static/js/runtime~main.e26e86c6.js.map",
     "static/js/2.9d067e6a.chunk.js": "/Responsive_JSON_Editor/static/js/2.9d067e6a.chunk.js",
     "static/js/2.9d067e6a.chunk.js.map": "/Responsive_JSON_Editor/static/js/2.9d067e6a.chunk.js.map",
     "index.html": "/Responsive_JSON_Editor/index.html",
-    "precache-manifest.a46934a283ff9bc29c74aa1f5f26b067.js": "/Responsive_JSON_Editor/precache-manifest.a46934a283ff9bc29c74aa1f5f26b067.js",
+    "precache-manifest.6d1961c751648fe0c53574f64095d28a.js": "/Responsive_JSON_Editor/precache-manifest.6d1961c751648fe0c53574f64095d28a.js",
     "service-worker.js": "/Responsive_JSON_Editor/service-worker.js",
     "static/css/main.39a82b3c.chunk.css.map": "/Responsive_JSON_Editor/static/css/main.39a82b3c.chunk.css.map"
   }
