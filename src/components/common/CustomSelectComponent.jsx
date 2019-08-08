@@ -4,7 +4,6 @@ import Button from "@material-ui/core/Button";
 import { MuiThemeProvider } from "material-ui/styles";
 import SuperSelectField from "material-ui-superselectfield";
 import { setData } from "../../store/actions";
-import theme from "../../styles/SuperSelectFieldStyles";
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -25,6 +24,11 @@ function CustomSelectComponent({ id, properties, onDataModified }) {
   let ref = React.createRef();
   let options = properties[id]["options"];
   let label = properties[id].label;
+
+  React.useEffect(() => {
+    ref.current.root.className = "SuperSelectField";
+  });
+
   return (
     <div className="SuperSelectFieldDiv">
       <MuiThemeProvider>
@@ -32,7 +36,12 @@ function CustomSelectComponent({ id, properties, onDataModified }) {
           onAutoCompleteTyping={e => {
             setInputValue(e);
           }}
-          floatingLabelStyle={theme.floatingLabelStyle}
+          floatingLabelStyle={{
+            display: "flex",
+            alignItems: "flex-start",
+            fontSize: "18px",
+            color: "#757575"
+          }}
           floatingLabel={label}
           noMatchFound={
             options.length === 0 ? (
@@ -57,7 +66,6 @@ function CustomSelectComponent({ id, properties, onDataModified }) {
           name="state11"
           hintText=""
           value={null}
-          style={theme.superSelectField}
           elementHeight={53}
           showAutocompleteThreshold={1}
         >
