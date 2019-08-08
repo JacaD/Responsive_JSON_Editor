@@ -1,20 +1,9 @@
+/* Material UI Customized Components */
+
 .GridContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.SuperSelectFieldDiv {
-  display: flex;
-  flex-grow: 2;
-}
-
-.AddButton {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
 }
 
 .Paper {
@@ -26,10 +15,45 @@
   flex-grow: 1;
 }
 
-.TextFieldDiv {
+.CustomExpansionPanelItem {
+  display: flex;
+  flex-direction: column;
+}
+
+/* SuperSelectField styles */
+
+.SuperSelectFieldDiv {
   display: flex;
   flex-grow: 2;
 }
+
+.SelectEntry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.CustomSelectComponentDiv {
+  display: flex;
+  flex-grow: 2;
+}
+
+/* Buttons */
+
+.AddButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.ImageButton {
+  height: 36px;
+  width: 45px;
+}
+
+/* Properties elements divs */
 
 .SuperTextInputDiv {
   display: flex;
@@ -37,11 +61,21 @@
   margin: 10px;
 }
 
-.GroupDiv {
+.SuperCheckboxDiv {
+  margin-left: -5px;
   display: flex;
-  padding: 10px;
-  flex-direction: column;
+  flex-grow: 2;
+  padding-left: 0px;
 }
+
+.SuperComboboxDiv {
+  margin-left: -3px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+/* Image section styles */
 
 .ImageDiv {
   height: 100%;
@@ -72,40 +106,7 @@
   height: 90%;
 }
 
-.SelectEntry {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.ImageButtonDiv {
-  display: flex !important;
-  align-items: center !important;
-}
-
-.ImageButton {
-  height: 36px;
-  width: 45px;
-}
-
-.SuperCheckboxDiv {
-  margin-left: -5px;
-  display: flex;
-  flex-grow: 2;
-  padding-left: 0px;
-}
-
-.SuperComboboxDiv {
-  margin-left: -3px;
-  margin-right: 10px;
-  display: flex;
-  align-items: center;
-}
-
-.CustomSelectComponentDiv {
-  display: flex;
-  flex-grow: 2;
-}
+/* Other styles */
 
 .TextField {
   display: flex;
@@ -113,7 +114,18 @@
   margin-left: 10px;
 }
 
-.CustomExpansionPanelItem {
+.TextFieldDiv {
   display: flex;
+  flex-grow: 2;
+}
+
+.GroupDiv {
+  display: flex;
+  padding: 10px;
   flex-direction: column;
+}
+
+.ImageButtonDiv {
+  display: flex !important;
+  align-items: center !important;
 }
