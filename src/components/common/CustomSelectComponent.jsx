@@ -2,10 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import Button from "@material-ui/core/Button";
 import { MuiThemeProvider } from "material-ui/styles";
-import { createMuiTheme } from "@material-ui/core/styles";
 import SuperSelectField from "material-ui-superselectfield";
 import { setData } from "../../store/actions";
-import theme from "../../styles";
+import theme from "../../SuperSelectFieldStyles";
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -27,26 +26,20 @@ function CustomSelectComponent({ id, properties, onDataModified }) {
   let options = properties[id]["options"];
   let label = properties[id].label;
   return (
-    <div className="superSelectFieldDiv">
-      <MuiThemeProvider theme={createMuiTheme(theme)}>
+    <div className="SuperSelectFieldDiv">
+      <MuiThemeProvider>
         <SuperSelectField
           onAutoCompleteTyping={e => {
             setInputValue(e);
           }}
-          floatingLabelStyle={{
-            display: "flex",
-            alignItems: "flex-start",
-            fontSize: "18px",
-            color: "#757575"
-          }}
+          floatingLabelStyle={theme.floatingLabelStyle}
           floatingLabel={label}
           noMatchFound={
             options.length === 0 ? (
               <div>Nothing to show</div>
             ) : (
               <Button
-                className={"addButton"}
-                style={theme.addButton}
+                classes={{ root: "AddButton" }}
                 onClick={() => {
                   if (inputValue) {
                     let newOptions = [...properties[id].options];
@@ -70,16 +63,7 @@ function CustomSelectComponent({ id, properties, onDataModified }) {
         >
           {options.map(option => {
             return (
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center"
-                }}
-                key={option}
-                value={option}
-                className="SelectEntry"
-              >
+              <div key={option} value={option} className="SelectEntry">
                 <div>{option}</div>
                 <div>
                   <Button

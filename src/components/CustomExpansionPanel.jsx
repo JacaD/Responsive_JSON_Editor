@@ -14,16 +14,9 @@ function CustomExpansionPanel({ items, onChangeFunc, group }) {
       >
         <Typography>{group}</Typography>
       </ExpansionPanelSummary>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column"
-        }}
-      >
+      <div className={"CustomExpansionPanelItem"}>
         {items.map((item, index) => (
-          <div key={index} style={{}}>
-            {item}
-          </div>
+          <div key={index}>{item}</div>
         ))}
       </div>
     </ExpansionPanel>

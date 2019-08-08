@@ -1,12 +1,12 @@
 {
-  "homepage": "https://github.com/JacaD/Responsive_JSON_Editor",
+  "homepage": "https://jacad.github.io/Responsive_JSON_Editor/",
   "name": "responsive_json_editor",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.2.1",
     "@material-ui/icons": "^4.2.1",
-    "gh-pages": "^2.1.0",
+    "gh-pages": "^2.0.1",
     "lodash": "^4.17.14",
     "material-ui": "^0.20.2",
     "material-ui-superselectfield": "^1.10.0",

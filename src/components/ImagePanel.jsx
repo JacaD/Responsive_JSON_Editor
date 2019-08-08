@@ -13,40 +13,20 @@ const mapStateToProps = state => {
 
 const ImagePanel = ({ expansionPanelsState, isShowing, imagePath }) => {
   return (
-    <Paper
-      className={"paper"}
-      style={{
-        overflow: "hidden"
-      }}
-    >
-      <div style={{ position: "relative" }} className={"imageDiv"}>
+    <Paper className={"Paper ImagePaper"}>
+      <div className={"ImageDiv"}>
         <div
-          className={"promptBar"}
+          className={"PromptBar"}
           style={{
-            backgroundColor: expansionPanelsState.some(
-              x => x[0] === true && x[1] === true
-            )
+            backgroundColor: expansionPanelsState.some(x => x[0] && x[1])
               ? "#eaeaea"
               : "#fff"
           }}
         />
-        <div
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: "90%",
-            height: "90%"
-          }}
-        >
+        <div className={"ImageSlideDiv"}>
           <Slide direction="right" in={isShowing} mountOnEnter unmountOnExit>
             <div>
-              <img
-                src={imagePath}
-                style={{ maxWidth: "100%", maxHeight: "100%" }}
-                alt="images"
-              />
+              <img src={imagePath} className={"Image"} alt="images" />
             </div>
           </Slide>
         </div>

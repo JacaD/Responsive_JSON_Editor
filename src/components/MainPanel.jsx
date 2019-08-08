@@ -7,7 +7,7 @@ import CustomGrid from "./CustomGrid";
 function MainPanel() {
   return (
     <CustomGrid
-      items={[<EditingPanel />, <ImagePanel />, <Paper className={"paper"} />]}
+      items={[<EditingPanel />, <ImagePanel />, <Paper className={"Paper"} />]}
     />
   );
 }

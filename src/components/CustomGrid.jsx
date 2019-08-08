@@ -5,7 +5,7 @@ function CustomGrid({ items }) {
   return (
     <Grid container spacing={0}>
       <Grid item xs={12}>
-        <Grid className={"gridContainer"} container spacing={2}>
+        <Grid className={"GridContainer"} container spacing={2}>
           {items.map((item, index) => {
             return (
               <Grid item key={index}>

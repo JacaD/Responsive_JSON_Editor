@@ -55,12 +55,7 @@ function DialogBox({ id, properties, onDataModified }) {
         }
       }}
     >
-      <Button
-        variant="outlined"
-        color="primary"
-        onClick={handleClickOpen}
-        style={{ margin: 5 }}
-      >
+      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
         new
       </Button>
       <Dialog

@@ -1,33 +1,119 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.GridContainer {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.SuperSelectFieldDiv {
+  display: flex;
+  flex-grow: 2;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.AddButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.Paper {
+  height: 550px;
+  width: 430px;
+}
+
+.CustomAppBar {
+  flex-grow: 1;
+}
+
+.TextFieldDiv {
+  display: flex;
+  flex-grow: 2;
+}
+
+.SuperTextInputDiv {
+  display: flex;
+  align-content: flex-start;
+  margin: 10px;
+}
+
+.GroupDiv {
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+}
+
+.ImageDiv {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.PromptBar {
+  height: 100%;
+  width: 2%;
+}
+
+.Image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.ImagePaper {
+  overflow: hidden;
+}
+
+.ImageSlideDiv {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 90%;
+}
+
+.SelectEntry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ImageButtonDiv {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.ImageButton {
+  height: 36px;
+  width: 45px;
+}
+
+.SuperCheckboxDiv {
+  margin-left: -5px;
+  display: flex;
+  flex-grow: 2;
+  padding-left: 0px;
+}
+
+.SuperComboboxDiv {
+  margin-left: -3px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.CustomSelectComponentDiv {
+  display: flex;
+  flex-grow: 2;
+}
+
+.TextField {
+  display: flex;
+  flex-grow: 2;
+  margin-left: 10px;
+}
+
+.CustomExpansionPanelItem {
+  display: flex;
+  flex-direction: column;
 }

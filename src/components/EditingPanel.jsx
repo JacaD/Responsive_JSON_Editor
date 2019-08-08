@@ -23,8 +23,8 @@ const mapDispatchToProps = dispatch => {
 function EditingPanel({ properties, onPanelsChange }) {
   let data = formatJSONByKey(properties, "group");
   return (
-    <Paper className={"paper"}>
-      <div className={"groupDiv"}>
+    <Paper classes={{ root: "Paper" }}>
+      <div className={"GroupDiv"}>
         {Object.keys(data).map((group, index) => {
           return (
             <CustomExpansionPanel
