@@ -37,7 +37,12 @@ function CustomSelectComponent({ id, properties, onDataModified }) {
             setInputValue(e);
             console.log(ref.current);
           }}
-          floatingLabel={<div className={"FloatingLabel"}>{label}</div>}
+          floatingLabel={label}
+          floatingLabelStyle={{
+            color: "#757575",
+            fontFamily: "Roboto"
+          }}
+          floatingLabelFocusStyle={{ color: "#03A9F4", fontFamily: "Roboto" }}
           noMatchFound={
             options.length === 0 ? (
               <div>Nothing to show</div>

@@ -45,13 +45,7 @@
   align-items: stretch;
   flex-grow: 2;
   padding: 5px;
-}
-
-.FloatingLabel {
-  display: flex;
-  align-items: flex-start;
-  font-size: 18px;
-  color: #757575;
+  font-family: "Roboto";
 }
 
 /* Buttons */
