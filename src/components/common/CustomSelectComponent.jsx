@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 import { MuiThemeProvider } from "material-ui/styles";
 import SuperSelectField from "material-ui-superselectfield";
 import { setData } from "../../store/actions";
-import theme from "../../SuperSelectFieldStyles";
+import theme from "../../styles/SuperSelectFieldStyles";
 
 const mapDispatchToProps = dispatch => {
   return {
