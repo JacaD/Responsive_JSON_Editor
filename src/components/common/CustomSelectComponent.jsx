@@ -35,14 +35,9 @@ function CustomSelectComponent({ id, properties, onDataModified }) {
         <SuperSelectField
           onAutoCompleteTyping={e => {
             setInputValue(e);
+            console.log(ref.current);
           }}
-          floatingLabelStyle={{
-            display: "flex",
-            alignItems: "flex-start",
-            fontSize: "18px",
-            color: "#757575"
-          }}
-          floatingLabel={label}
+          floatingLabel={<div className={"FloatingLabel"}>{label}</div>}
           noMatchFound={
             options.length === 0 ? (
               <div>Nothing to show</div>
