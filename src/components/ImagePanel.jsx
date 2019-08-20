@@ -18,7 +18,9 @@ const ImagePanel = ({ expansionPanelsState, isImageShowing, imagePath }) => {
         <div
           className={"PromptBar"}
           style={{
-            backgroundColor: expansionPanelsState.some(x => x[0] && x[1])
+            backgroundColor: expansionPanelsState.some(
+              x => x.isExpanded && x.hasImage
+            )
               ? "#eaeaea"
               : "#fff"
           }}

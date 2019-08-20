@@ -1,27 +1,8 @@
 import React from "react";
-import { connect } from "react-redux";
 import TextField from "@material-ui/core/TextField";
-import { setData } from "../../store/actions";
 import ImageButton from "./ImageButton";
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onDataModified: (data, id) => {
-      dispatch(setData(data, id));
-    }
-  };
-};
-
-const mapStateToProps = state => {
-  return {
-    properties: state.properties
-  };
-};
-
-const SuperTextInput = ({ id, properties, onDataModified }) => {
-  const input = Object.values(properties).filter(
-    property => property.id === id
-  )[0];
+const SuperTextInput = ({ input, onDataModified }) => {
   return (
     <div key={input.id} className={"SuperTextInputDiv"}>
       <div className={"TextFieldDiv"}>
@@ -36,12 +17,9 @@ const SuperTextInput = ({ id, properties, onDataModified }) => {
           classes={{ root: "TextField" }}
         />
       </div>
-      {input["image"] && <ImageButton id={id} />}
+      {input["image"] && <ImageButton id={input.id} />}
     </div>
   );
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SuperTextInput);
+export default SuperTextInput;

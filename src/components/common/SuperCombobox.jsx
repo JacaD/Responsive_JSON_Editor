@@ -1,30 +1,20 @@
 import React from "react";
-import { connect } from "react-redux";
 import DialogBox from "../DialogBox";
 import CustomSelectComponent from "../common/CustomSelectComponent";
 import ImageButton from "./ImageButton";
 
-const mapStateToProps = state => {
-  return {
-    properties: state.properties
-  };
-};
-
-const SuperCombobox = ({ id, properties }) => {
-  const input = Object.values(properties).filter(
-    property => property.id === id
-  )[0];
+const SuperCombobox = ({ input, onDataModified }) => {
   return (
-    <div key={id} className={"SuperComboboxDiv"}>
+    <div key={input.id} className={"SuperComboboxDiv"}>
       <div className={"CustomSelectComponentDiv"}>
-        <CustomSelectComponent id={id} />
+        <CustomSelectComponent input={input} onDataModified={onDataModified} />
       </div>
       <div>
-        <DialogBox id={id} />
+        <DialogBox input={input} onDataModified={onDataModified} />
       </div>
-      {input["image"] && <ImageButton id={id} />}
+      {input["image"] && <ImageButton id={input.id} />}
     </div>
   );
 };
 
-export default connect(mapStateToProps)(SuperCombobox);
+export default SuperCombobox;

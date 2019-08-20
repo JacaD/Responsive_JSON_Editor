@@ -1,29 +1,11 @@
 import React from "react";
-import { connect } from "react-redux";
 import Button from "@material-ui/core/Button";
 import { MuiThemeProvider } from "material-ui/styles";
 import SuperSelectField from "material-ui-superselectfield";
-import { setData } from "../../store/actions";
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onDataModified: (data, id) => {
-      dispatch(setData(data, id));
-    }
-  };
-};
-
-const mapStateToProps = state => {
-  return {
-    properties: state.properties
-  };
-};
-
-function CustomSelectComponent({ id, properties, onDataModified }) {
+function CustomSelectComponent({ input, onDataModified }) {
   let [inputValue, setInputValue] = React.useState("");
   let ref = React.createRef();
-  let options = properties[id]["options"];
-  let label = properties[id].label;
 
   React.useEffect(() => {
     ref.current.root.className = "SuperSelectField";
@@ -37,23 +19,23 @@ function CustomSelectComponent({ id, properties, onDataModified }) {
             setInputValue(e);
             console.log(ref.current);
           }}
-          floatingLabel={label}
+          floatingLabel={input.label}
           floatingLabelStyle={{
             color: "#757575",
             fontFamily: "Roboto"
           }}
           floatingLabelFocusStyle={{ color: "#03A9F4", fontFamily: "Roboto" }}
           noMatchFound={
-            options.length === 0 ? (
+            input.options.length === 0 ? (
               <div>Nothing to show</div>
             ) : (
               <Button
                 classes={{ root: "AddButton" }}
                 onClick={() => {
                   if (inputValue) {
-                    let newOptions = [...properties[id].options];
+                    let newOptions = [...input.options];
                     newOptions.push(inputValue);
-                    onDataModified({ options: newOptions }, id);
+                    onDataModified({ options: newOptions }, input.id);
                   }
                   ref.current.closeMenu();
                 }}
@@ -69,7 +51,7 @@ function CustomSelectComponent({ id, properties, onDataModified }) {
           elementHeight={53}
           showAutocompleteThreshold={1}
         >
-          {options.map(option => {
+          {input.options.map(option => {
             return (
               <div key={option} value={option} className="SelectEntry">
                 <div>{option}</div>
@@ -77,9 +59,9 @@ function CustomSelectComponent({ id, properties, onDataModified }) {
                   <Button
                     onClick={e => {
                       e.stopPropagation();
-                      let newOptions = [...options];
+                      let newOptions = [...input.options];
                       newOptions.splice(newOptions.indexOf(option), 1);
-                      onDataModified({ options: newOptions }, id);
+                      onDataModified({ options: newOptions }, input.id);
                     }}
                   >
                     delete
@@ -94,7 +76,4 @@ function CustomSelectComponent({ id, properties, onDataModified }) {
   );
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CustomSelectComponent);
+export default CustomSelectComponent;

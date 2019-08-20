@@ -1,28 +1,12 @@
 import React from "react";
-import { connect } from "react-redux";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
-import { setData } from "../store/actions";
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onDataModified: (data, id) => {
-      dispatch(setData(data, id));
-    }
-  };
-};
-
-const mapStateToProps = state => {
-  return {
-    properties: state.properties
-  };
-};
-
-function DialogBox({ id, properties, onDataModified }) {
-  let label = properties[id].label;
+function DialogBox({ input, onDataModified }) {
+  let label = input.label;
   const [open, setOpen] = React.useState(false);
   let value;
 
@@ -40,9 +24,9 @@ function DialogBox({ id, properties, onDataModified }) {
 
   function handleSave() {
     if (value) {
-      let newOptions = [...properties[id].options];
+      let newOptions = [...input.options];
       newOptions.push(value);
-      onDataModified({ options: newOptions }, id);
+      onDataModified({ options: newOptions }, input.id);
     }
     setOpen(false);
   }
@@ -86,7 +70,4 @@ function DialogBox({ id, properties, onDataModified }) {
   );
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(DialogBox);
+export default DialogBox;

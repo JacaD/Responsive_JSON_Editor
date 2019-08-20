@@ -3,15 +3,15 @@ import SuperCheckbox from "../SuperCheckbox";
 import SuperCombobox from "../SuperCombobox";
 import SuperTextInput from "../SuperTextInput";
 
-const createInputs = inputs => {
+const createInputs = (inputs, onDataModified) => {
   return inputs.map(input => {
     switch (input.type) {
       case "checkbox":
-        return <SuperCheckbox id={input.id} />;
+        return <SuperCheckbox input={input} onDataModified={onDataModified} />;
       case "combobox":
-        return <SuperCombobox id={input.id} />;
+        return <SuperCombobox input={input} onDataModified={onDataModified} />;
       case "text":
-        return <SuperTextInput id={input.id} />;
+        return <SuperTextInput input={input} onDataModified={onDataModified} />;
       default:
         return null;
     }
